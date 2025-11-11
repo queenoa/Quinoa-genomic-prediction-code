@@ -54,7 +54,7 @@ echo "Started at $(date)"
 # Also removes GATK command lines to reduce header clutter
 bcftools annotate --threads=20 \
   -x ^FORMAT/GT \
-  --header-lines <(grep "^##" CqAllChro_Cp_Mt.SNPs.exclude_filtered_finalAUS_PAK_samples.chromosomesonly.snpsonly_minmeanDP5-maxmeanDP30_maxmissing0.8_biallelic_MAF0.01.vcf.gz | grep -v "GATKCommandLine") \
+  --header-lines <(zcat CqAllChro_Cp_Mt.SNPs.exclude_filtered_finalAUS_PAK_samples.chromosomesonly.snpsonly_minmeanDP5-maxmeanDP30_maxmissing0.8_biallelic_MAF0.01.vcf.gz | grep "^##" | grep -v "GATKCommandLine") \
   CqAllChro_Cp_Mt.SNPs.exclude_filtered_finalAUS_PAK_samples.chromosomesonly.snpsonly_minmeanDP5-maxmeanDP30_maxmissing0.8_biallelic_MAF0.01.vcf.gz \
   -O v \
   -o CqAllChro_Cp_Mt.SNPs.exclude_filtered_finalAUS_PAK_samples.chromosomesonly.snpsonly_minmeanDP5-maxmeanDP30_maxmissing0.8_biallelic_MAF0.01_GTonly_noGATK.vcf
